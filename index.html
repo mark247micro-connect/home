@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #0078d4;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .call-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0078d4;
+            color: white;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Microsoft Customer Support</h2>
+    </header>
+
+    <div>
+        <a href="tel:+18337143958" class="call-button">Call Now</a>
+        <a href="tel:+18337143958" class="call-button">For Any assistance +1(833) 714-3958</a>    </div>
+    <main>
+        <section class="product" onclick="showDetails('office')">
+            <h2>Microsoft Office Suite</h2>
+            <p>Word, Excel, PowerPoint, and Outlook.</p>
+        </section>
+        <section class="product" onclick="showDetails('windows')">
+            <h2>Microsoft Windows</h2>
+            <p>Latest operating systems for your devices.</p>
+        </section>
+        <section class="product" onclick="showDetails('azure')">
+            <h2>Microsoft Azure</h2>
+            <p>Cloud computing services for businesses.</p>
+        </section>
+        <section class="product" onclick="showDetails('teams')">
+            <h2>alphatech Teams</h2>
+            <p>Collaboration and communication platform.</p>
+        </section>
+    </main>
+    
+    
+
+    <footer>
+        <p>&copy; 2024 alphatech Corporation</p>
+    </footer>
+
+    <div id="details" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDetails()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script>
+        function showDetails(product) {
+            const modal = document.getElementById('details');
+            const title = document.getElementById('modal-title');
+            const description = document.getElementById('modal-description');
+
+            switch (product) {
+                case 'office':
+                    title.innerText = 'Microsoft Office Suite';
+                    description.innerText = 'Includes Word, Excel, PowerPoint, and Outlook for productivity.';
+                    break;
+                case 'windows':
+                    title.innerText = 'Microsoft Windows';
+                    description.innerText = 'Latest operating systems designed for security and performance.';
+                    break;
+                case 'azure':
+                    title.innerText = 'Microsoft Azure';
+                    description.innerText = 'A comprehensive cloud computing platform for business solutions.';
+                    break;
+                case 'teams':
+                    title.innerText = 'Microsoft Teams';
+                    description.innerText = 'A hub for teamwork and collaboration with chat, video, and files.';
+                    break;
+            }
+
+            modal.style.display = 'block';
+        }
+
+        function closeDetails() {
+            const modal = document.getElementById('details');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('details');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
